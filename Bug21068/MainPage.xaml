@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:base="clr-namespace:Bug21068"
+             x:Class="Bug21068.MainPage">
+
+    <ScrollView>
+        <VerticalStackLayout
+            Padding="30,0"
+            Spacing="25">
+            <Grid HeightRequest="360"
+                  RowDefinitions="60,60,60,60,60,60"
+                  ColumnDefinitions="*,60,*"
+                  BackgroundColor="Pink">
+                <Label Grid.Row="0" Grid.Column="0"
+                       VerticalOptions="End"
+                       Text="Image:" FontAttributes="Bold"/>
+                <Image Grid.Row="1" Grid.Column="1"
+                    Source="dotnet_bot.png"
+                    HeightRequest="60"
+                    WidthRequest="60"
+                    Aspect="AspectFill"
+                    BackgroundColor="GreenYellow"
+                    Rotation="{Binding Rotation.Value}"
+                   />
+
+                <Label Grid.Row="3" Grid.Column="0"
+                       VerticalOptions="End"
+                       Text="InitalRotationImage:" FontAttributes="Bold"/>
+                <base:InitalRotationImage Grid.Row="4" Grid.Column="1"
+                    Source="dotnet_bot.png"
+                    HeightRequest="60"
+                    WidthRequest="60"
+                    Aspect="AspectFill"
+                    BackgroundColor="GreenYellow"
+                    Rotation="{Binding Rotation.Value}"
+                   />
+            </Grid>
+
+            <Button
+                Text="Clockwise" 
+                Command="{Binding Rotate90ClockwiseCommand}"
+                HorizontalOptions="Fill" />
+
+            <Button
+                Text="Counter Clockwise" 
+                Command="{Binding Rotate90CounterClockwiseCommand}"
+                HorizontalOptions="Fill" />
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
